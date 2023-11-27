@@ -6,4 +6,8 @@ let sub = x - y;
 let times = x * y;
 let divide = x / y;
 
-console.log(`Os números ${x} e ${y} possuem soma ${sum}, subtração ${sub}, multiplicação ${times} e divisão ${divide}`);
+console.log(`Os números ${x} e ${y} possuem:
+\nsoma ${sum}
+\nsubtração ${sub}
+\nmultiplicação ${times}
+\ndivisão ${divide}`);
