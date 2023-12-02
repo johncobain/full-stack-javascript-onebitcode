@@ -24,7 +24,7 @@ Digite o nome do Paciente:`);
             break;
         case 2:
             let consultado = pacientes.shift();
-            alert(`Paciente ${consultado} consultado!`);
+            alert(`Paciente ${consultado} foi removido da fila!`);
             break;
         case 3:
             alert('Encerrando o programa...')
