@@ -11,7 +11,7 @@ Quantidade de banheiros.
 Se possui garagem.
 
 O menu também deve ter a opção de mostrar todos os imóveis salvos. */
-let imoveis = [];
+const imoveis = [];
 
 let opt ='';
 while(opt!==4){
@@ -24,14 +24,21 @@ while(opt!==4){
 console.clear();
 switch (opt) {
     case 1:
-        const nome = prompt('Digite o nome do proprietário do imóvel:');
-        const quartos = parseInt(prompt('Quantos quartos há no imóvel?'));
-        const banheiros = parseInt(prompt('Quantos banheiros há no imóvel?'));
-        const garagem = prompt('O imóvel possui garagem?(s/n)').toLowerCase();
+        const imovel = {};
+        imovel.nome = prompt('Digite o nome do proprietário do imóvel:');
+        imovel.quartos = parseInt(prompt('Quantos quartos há no imóvel?'));
+        imovel.banheiros = parseInt(prompt('Quantos banheiros há no imóvel?'));
+        imovel.garagem = prompt('O imóvel possui garagem?(s/n)').toLowerCase();
 
-        const novoImovel = {nome, quartos, banheiros, garagem};
-        imoveis.push(novoImovel);
-        alert(`Imóvel de ${nome} registrado!`);
+        const confirma = confirm(`Salvar imóvel?
+Propietário(a): ${imovel.nome}
+Quantidade de Quartos: ${imovel.quartos}
+Quantidade de Banheiros: ${imovel.banheiros}
+${imovel.garagem === 's'? 'Possui garagem': 'Não possui garagem'}\n\n`);
+        if(confirma){
+            imoveis.push(imovel);
+        }
+        alert(`Imóvel de ${imovel.nome} registrado!`);
         break;
     case 2:
         let mensagem = '';
