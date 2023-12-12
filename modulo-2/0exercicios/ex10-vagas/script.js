@@ -1,4 +1,6 @@
-function menu(vagas){
+const vagas = [];
+
+function menu(){
     const telaOpt = parseInt(prompt(`Bem-Vindo(a) ao Sistema de Vagas de Emprego Johnny (SVEJ)
 Atualmente temos um total de ${vagas.length} vagas
 
@@ -27,7 +29,7 @@ function candidatos(vaga){
         return 'Nenhum Candidato cadastrado';
     }
 }
-function vagasTotais(vagas){
+function vagasTotais(){
     if(vagas.length > 0){
         let res = '';
         vagas.forEach((elemento, indice) => {
@@ -41,7 +43,7 @@ Nome dos candidatos: ${candidatos(elemento)}
         alert('Não há vagas cadastradas!');
     }
 }
-function criarVaga(vagas){
+function criarVaga(){
     const novaVaga = {candidatos: []};
     novaVaga.nome = prompt('Qual será o nome da nova vaga?');
     novaVaga.descricao = prompt('Qual será a descrição da nova vaga?');
@@ -52,17 +54,17 @@ function criarVaga(vagas){
         vagas.push(novaVaga);
     }
 }
-function visualizarVaga(vagas){
+function visualizarVaga(){
     if(vagas.length > 0){
         const vaga = parseInt(prompt('Qual o índice da vaga que você deseja visualizar?'))-1;   
             
         if(vagas[vaga]){
-            let vagaInf = `Índice da vaga: ${vaga}
-    Nome: ${vagas[vaga].nome}
-    Descrição: ${vagas[vaga].descricao}
-    Data limite: ${vagas[vaga].dataLimite}
-    Quantidade de candidatos: ${vagas[vaga].candidatos.length}
-    Nome dos candidatos: ${candidatos(vagas[vaga])}`;
+            let vagaInf = `Índice da vaga: ${vaga+1}
+Nome: ${vagas[vaga].nome}
+Descrição: ${vagas[vaga].descricao}
+Data limite: ${vagas[vaga].dataLimite}
+Quantidade de candidatos: ${vagas[vaga].candidatos.length}
+Nome dos candidatos: ${candidatos(vagas[vaga])}`;
             alert(vagaInf);
         }else{
             alert('Índice incorreto!');
@@ -71,7 +73,7 @@ function visualizarVaga(vagas){
         alert('Não há vagas cadastradas!');
     }
 }
-function inscreverCandidato(vagas){
+function inscreverCandidato(){
     if(vagas.length > 0){
         const novoCandidato = prompt('Qual o nome do candidato inscrito?');
         const vaga = parseInt(prompt('Qual o índice da vaga que você deseja adicionar o candidato?'))-1;
@@ -88,13 +90,13 @@ function inscreverCandidato(vagas){
         alert('Não há vagas cadastradas!');
     }
 }
-function excluirVaga(vagas){
+function excluirVaga(){
     if(vagas.length > 0){
         const vaga = parseInt(prompt('Qual o índice da vaga que você deseja excluir?'))-1;  
             
         if(vagas[vaga]){
-            vagas.splice(vaga,1);
             alert(`Vaga de ${vagas[vaga].nome} removida!`);
+            vagas.splice(vaga,1);
         }else{
             alert('Índice incorreto!');
         }
@@ -105,25 +107,24 @@ function excluirVaga(vagas){
 
 
 function sistema(){
-    const vagas = [];
     let opt = 0;
     while(opt !== 6){
         opt = menu(vagas);
         switch(opt){
             case 1:
-                vagasTotais(vagas);
+                vagasTotais();
                 break;
             case 2:
-                criarVaga(vagas);
+                criarVaga();
                 break;
             case 3:
-                visualizarVaga(vagas);
+                visualizarVaga();
                 break;
             case 4:
-                inscreverCandidato(vagas);
+                inscreverCandidato();
                 break;
             case 5:
-                excluirVaga(vagas);
+                excluirVaga();
                 break;
             case 6:
                 alert('Encerrando...')
