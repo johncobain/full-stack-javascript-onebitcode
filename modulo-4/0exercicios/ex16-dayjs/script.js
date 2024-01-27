@@ -5,7 +5,7 @@ function birthday(year){
     const today = dayjs();
     const age = today.diff(date, 'year');
     const nextB = date.add(age+1,'year');
-    const daysToNext = nextB.diff(today, 'day')
+    const daysToNext = nextB.diff(today, 'day') +1;
 
     console.log('--------------------------------');
     console.log(`Idade: ${age}`);
@@ -14,4 +14,4 @@ function birthday(year){
 }
 
 birthday('2005-08-20');
-birthday('2010-02-01');
+birthday('2008-02-29');
