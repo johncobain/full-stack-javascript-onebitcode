@@ -13,7 +13,7 @@ heading.build().render();
 const form = new Form('body')
 
 const label = new Label('Nome:', form, {htmlFor:'nameInput'});
-const input = new Input(form,{id:'nameInput',name:'birthday'});
+const input = new Input(form,{id:'nameInput',name:'name'});
 
 form.render();
 
