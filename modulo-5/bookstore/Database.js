@@ -52,9 +52,10 @@ module.exports = class Database{
     }
 
     saveUser(user){
-        const userExists = this.#storage.user.find(u=>u.email === user.email);
+        const userExists = this.#storage.users.find(u=>u.email === user.email);
+        
         if (!userExists){
-            this.#storage.push(user);
+            this.#storage.users.push(user);
         }
     }
 
