@@ -12,15 +12,15 @@ module.exports = class Loan{
         this.value = value;
         this.installments = [];
         for(let i=1; i<= installments; i++){
-            this.installments.push(new Installment((value*Loan.#fee)/installments), i);
+            this.installments.push(new Installment((value*Loan.#fee)/installments,i));
         }
         this.createdAt= new Date();
     }
 
-    static getFee(){
+    static get fee(){
         return Loan.#fee;
     }
-    static setFee(newFeePercentage){
-        Loan.#fee = 1 = (newFeePercentage/100);
+    static set fee(newFeePercentage){
+        Loan.#fee = 1 + (newFeePercentage/100);
     }
 }
