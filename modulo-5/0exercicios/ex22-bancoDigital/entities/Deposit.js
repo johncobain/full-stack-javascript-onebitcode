@@ -1,10 +1,7 @@
-/*Deposit: Deverá possuir um atributo para o valor e um atributo para a data de criação.
-
-*/
+/*Deposit: Deverá possuir um atributo para o valor e um atributo para a data de criação.*/
 module.exports = class Deposit{
-    constructor(value, date){
+    constructor(value){
         this.value = value;
-        this.date = date;
+        this.createdAt = new Date();
     }
-
 }

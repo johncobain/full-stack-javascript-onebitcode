@@ -1,11 +1,9 @@
-/*
-Transfer: Deverá possuir atributos para: o usuário que enviou a transferência, o que recebeu a transferência, o valor e a data de criação.
-*/
+/*Transfer: Deverá possuir atributos para: o usuário que enviou a transferência, o que recebeu a transferência, o valor e a data de criação.*/
 module.exports = class Transfer{
-    constructor(userSend, userR, value, date){
-        this.userSend = userSend;
-        this.userR = userR;
+    constructor(fromUser, toUser, value){
+        this.fromUser = fromUser;
+        this.toUser = toUser;
         this.value = value;
-        this.date = date;
+        this.createdAt = new Date();
     }
 }
